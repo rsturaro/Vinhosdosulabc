@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinhos do Sul Abc</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones Font Awesome para os ícones sociais, carrinho e menu hamburguer -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Overlay de Verificação de Idade -->
+    <div class="age-verification-overlay" id="age-verification-overlay">
+        <div class="age-verification-modal">
+            <h2 class="text-age">Vinhos do Sul</h2>
+            <p>Para prosseguir, você deve ter 18 anos ou mais.</p>
+            <div class="age-buttons">
+                <button id="age-confirm-button" class="btn-primary">Sou maior de 18 anos</button>
+                <button id="age-deny-button" class="btn-deny">Não sou maior de 18 anos</button>
+            </div>
+            <p class="small-text">Beba com moderação.</p>
+        </div>
+    </div>
+
+    <!-- Header e Navegação -->
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="#" class="logo">Vinhos do Sul</a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#mais-vendidos">Mais Vendidos</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <!-- Ícones sociais no topo -->
+                <a href="https://www.instagram.com/vinhosdosul.abc/" target="_blank" class="social-icon-top" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/5511954613300" target="_blank" class="social-icon-top" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu flutuante para mobile (inicialmente escondido) -->
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="#mais-vendidos" class="mobile-nav-link">Mais Vendidos</a></li>
+                    <li><a href="#catalogo" class="mobile-nav-link">Catálogo</a></li>
+                    <li><a href="#sobre" class="mobile-nav-link">Sobre Nós</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Carrinho de Compras Flutuante (inicialmente escondido) -->
+        <div class="cart-overlay" id="cart-overlay">
+            <div id="cart-suggestions" class="cart-suggestions"></div>
+            <div class="cart-modal">
+                <h2>Seu Carrinho</h2>
+                <div class="cart-items" id="cart-items">
+                    <!-- Itens do carrinho serão inseridos aqui via JS -->
+                    <p class="empty-cart-message">Seu carrinho está vazio.</p>
+                </div>
+                <div class="cart-summary">
+                    <p>Total: R$ <span id="cart-total">0.00</span></p>
+                </div>
+                <button class="checkout-button">Finalizar Compra</button>
+                <button class="close-cart-button" id="close-cart-button">Fechar</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção de Banners -->
+        <section id="home" class="hero-banner">
+            <div class="banner-slide active" style="background-image: url('Banner.jpg');">
+            </div>
+        </section>
+
+        <!-- Seção Mais Vendidos -->
+        <section id="mais-vendidos" class="product-section container">
+            <h2 class="text-sales">Mais Vendidos</h2>
+            <div class="product-grid best-sellers-grid">
+                <!-- Produtos Mais Vendidos - Aleatórios da escolha (IDs: 1, 3, 7, 12) -->
+                <div class="product-card" data-id="1" data-name="Gans Portugal Branco - 750ml" data-price="115.00" data-rating="4.9">
+                    <img src="1.png" alt="Gans Portugal Branco - 750ml">
+                    <h3>Gans Portugal Branco - 750ml</h3>
+                    <p class="product-description">Cor amarelo leve. Aromas florais e a frutos Tropicais. Demonstra elegância, frescura e um fim de boca elegante.</p>
+                    <div class="product-details">
+                        <span class="product-price">R$ 115,00</span>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star-half-alt filled"></i>
+                            <span>(4.9)</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart"><b>Adicionar ao Carrinho</b></button>
+                </div>
+
+                <div class="product-card" data-id="8" data-name="Outeiro Tinto - 750ml" data-price="879.00" data-rating="5.0">
+                    <img src="8.jpeg" alt="Outeiro Tinto - 750ml">
+                    <h3>Outeiro Tinto - 750ml</h3>
+                    <p class="product-description">Castas 50% Syrah, 50% Petit Verdot. Muito intenso com aroma de frutas pretas e notas de especiarias e café, boa acidez, estrutura de grande complexidade.</p>
+                    <div class="product-details">
+                        <span class="product-price">R$ 879,00</span>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i>
+                            <span>(5.0)</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart"><b>Adicionar ao Carrinho</b></button>
+                </div>
+
+                 <div class="product-card" data-id="7" data-name="Sete Linhas Tinto - 750ml" data-price="1150.00" data-rating="4.9">
+                    <img src="9.jpeg" alt="Sete Linhas Tinto - 750ml">
+                    <h3>Sete Linhas Tinto - 750ml</h3>
+                    <p class="product-description">100% Alicante Bouschet, boca um bolo de fruta madura com ameixas e violeta, densa finla complexo com frutos pretos e suculentos.</p>
+                    <div class="product-details">
+                        <span class="product-price">R$ 1150,00</span>
+                        <div class="product-rating">
+                            <i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="fas fa-star filled"></i><i class="far fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                    </div>
+                    <button class="add-to-cart"><b>Adicionar ao Carrinho</b></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Catálogo Completo (Vinhos 1 ao 19) -->
+        <section id="catalogo" class="product-section container">
+            <h2 class="text-catalogo">Catálogo Completo</h2>
+            <p class="descri">Clique na imagem para abrir a descrição</p>
+            <div class="product-grid" id="catalog-grid">
+                <!-- Vinhos de 1 a 19 (serão filtrados e renderizados pelo JS) -->
+            </div>
+        </section>
+
+        <!-- Seção Sobre Nós -->
+        <section id="sobre" class="about-section container">
+            <h2 class="text-sobre">Sobre Vinhos do Sul</h2>
+            <p>Na Vinhos do Sul, cultivamos a paixão pelo bom vinho, trazendo até você uma seleção cuidadosa dos melhores rótulos do sul do Brasil e do mundo. Nossa missão é proporcionar uma experiência única, desde a escolha da garrafa até o último gole, com qualidade, tradição e atendimento que você merece.</p>
+            <p>Acreditamos que cada vinho conta uma história, e estamos aqui para ajudá-lo a encontrar a sua.</p>
+        </section>
+    </main>
+
+    <!-- Notificação Flutuante -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <p>&copy; 2025 Vinhos do Sul. Todos os direitos reservados. Desenvolvido por Ryan Gomes Sturaro</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/vinhosdosul.abc/" target="_blank" class="social-icon instagram-icon" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/5511954613300" target="_blank" class="social-icon whatsapp-icon" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+      <div class="product-modal-overlay" id="product-modal-overlay">
+        <div class="product-modal">
+            <button class="close-modal-button" id="close-product-modal">&times;</button>
+            <img id="modal-product-image" src="" alt="Imagem do Vinho">
+            <h3 id="modal-product-name"></h3>
+            <p id="modal-product-description"></p>
+            <span id="modal-product-price"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
